@@ -15,7 +15,12 @@ var express     = require("express"),
 	campgroundRoutes =require("./routes/campgrounds"),
 	indexRoutes      =require("./routes/index");
     
-mongoose.connect("mongodb+srv://shawYelp:Shivam123@cluster0-c88tq.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://shawYelp:Shivam123@cluster0-c88tq.mongodb.net/test?retryWrites=true&w=majority",{
+	useNewUrlParser:true,
+	useCreateIndex:true
+}).then(()=>{
+	console.log("connected to DB");
+}).catch(err=>{console.log(err.message)});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
