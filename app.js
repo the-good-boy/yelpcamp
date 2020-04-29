@@ -15,7 +15,7 @@ var express     = require("express"),
 	campgroundRoutes =require("./routes/campgrounds"),
 	indexRoutes      =require("./routes/index");
     
-mongoose.connect("mongodb+srv://shawYelp:Shivam123@cluster0-c88tq.mongodb.net/test?retryWrites=true&w=majority",{
+mongoose.connect(process.env.DATABASEURL,{
 	useNewUrlParser:true,
 	useCreateIndex:true
 }).then(()=>{
